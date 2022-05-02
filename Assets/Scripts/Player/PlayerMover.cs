@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace UnityTemplateProjects.Player
+namespace Player
 {
     public class PlayerMover : MonoBehaviour
     {
