@@ -1,7 +1,9 @@
-﻿namespace UnityTemplateProjects.Items
+﻿using UnityTemplateProjects.Player;
+
+namespace UnityTemplateProjects.Items
 {
     public interface ITouchable
     {
-        void Touch();
+        void Touch(PlayerContactDetector detector);
     }
 }

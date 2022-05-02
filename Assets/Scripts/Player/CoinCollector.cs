@@ -3,15 +3,8 @@ using UnityEngine;
 
 namespace UnityTemplateProjects.Player
 {
-    public class CoinCollector : MonoBehaviour
+    public class CoinCollector
     {
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.TryGetComponent(out Items.ITouchable getObject))
-            {
-                getObject.Touch();
-                Debug.Log("取得した！");
-            }
-        }
+        
     }
 }

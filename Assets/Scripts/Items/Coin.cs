@@ -7,7 +7,7 @@ namespace UnityTemplateProjects.Items
     {
         [SerializeField]
         private CoinType _type;
-        public void Touch()
+        public void Touch(PlayerContactDetector detector)
         {
             Debug.Log("コイン取得した");
         }
