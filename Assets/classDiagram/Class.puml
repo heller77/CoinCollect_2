@@ -1,0 +1,39 @@
+﻿@startuml
+'https://plantuml.com/class-diagram
+namespace Player{
+    class CoinCollecter{
+        Dictionary<CoinType,int> collectCoinNumber              
+    }
+    class PlayerMover{
+        Move()
+    }
+    class PlayerContactDetector{}
+}
+
+Items.ITouchble <. Player.PlayerContactDetector
+Player.PlayerContactDetector <- Player.CoinCollecter
+
+namespace Items{
+    Items.ITouchble <|.. Coin
+    interface ITouchble{
+        touch()
+    }
+    Coin -- CoinType
+    class Coin{
+        CoinType type
+        touch()   
+    }
+    Items.ITouchble <|.. Enadori
+    class Enadori{
+    }
+    enum CoinType{
+    }
+}
+'リザルト結果
+namespace Result{
+    ResultView <. Player.CoinCollecter
+    class ResultView{   
+    }
+}
+
+@enduml
