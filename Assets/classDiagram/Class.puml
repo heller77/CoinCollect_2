@@ -23,6 +23,10 @@ namespace Items{
         CoinType type
         touch()   
     }
+    class CoinGenerator{
+        void Generate()
+        void GenerateLoop()
+    }
     Items.ITouchble <|.. Enadori
     class Enadori{
     }
@@ -34,6 +38,10 @@ namespace Result{
     ResultView <. Player.CoinCollecter
     class ResultView{   
     }
+}
+
+namespace StartView{
+    
 }
 
 @enduml
