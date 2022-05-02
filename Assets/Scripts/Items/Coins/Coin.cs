@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityTemplateProjects.Player;
+﻿using Player;
+using UnityEngine;
 
 namespace Items.Coins
 {

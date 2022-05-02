@@ -1,4 +1,4 @@
-﻿using UnityTemplateProjects.Player;
+﻿using Player;
 
 namespace Items
 {

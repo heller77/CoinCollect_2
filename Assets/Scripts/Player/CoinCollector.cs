@@ -1,7 +1,4 @@
-﻿using System;
-using UnityEngine;
-
-namespace UnityTemplateProjects.Player
+﻿namespace Player
 {
     public class CoinCollector
     {
