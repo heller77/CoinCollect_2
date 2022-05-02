@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Items.Coins
+namespace CoinCollect2.Items.Coins
 {
     public class CoinGenerator : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-﻿using Player;
+﻿using CoinCollect2.Player;
 using UnityEngine;
 
-namespace Items.Coins
+namespace CoinCollect2.Items.Coins
 {
     public class Coin : MonoBehaviour,ITouchable
     {

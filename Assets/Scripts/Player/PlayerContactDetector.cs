@@ -1,7 +1,7 @@
-﻿using Items;
+﻿using CoinCollect2.Items;
 using UnityEngine;
 
-namespace Player
+namespace CoinCollect2.Player
 {
     public class PlayerContactDetector : MonoBehaviour
     {

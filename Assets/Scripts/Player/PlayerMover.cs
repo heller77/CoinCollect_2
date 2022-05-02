@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Player
+namespace CoinCollect2.Player
 {
     public class PlayerMover : MonoBehaviour
     {

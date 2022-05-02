@@ -1,6 +1,6 @@
-﻿using Player;
+﻿using CoinCollect2.Player;
 
-namespace Items
+namespace CoinCollect2.Items
 {
     public interface ITouchable
     {

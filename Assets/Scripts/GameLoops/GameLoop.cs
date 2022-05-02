@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GameLoops
+namespace CoinCollect2.GameLoops
 {
     public class GameLoop : MonoBehaviour
     {
