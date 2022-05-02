@@ -1,4 +1,4 @@
-﻿namespace UnityTemplateProjects.Items
+﻿namespace Items.Coins
 {
     public enum CoinType
     {

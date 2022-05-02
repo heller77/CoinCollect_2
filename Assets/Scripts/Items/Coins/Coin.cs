@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityTemplateProjects.Player;
 
-namespace UnityTemplateProjects.Items
+namespace Items.Coins
 {
     public class Coin : MonoBehaviour,ITouchable
     {

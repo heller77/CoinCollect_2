@@ -1,6 +1,6 @@
 ﻿using UnityTemplateProjects.Player;
 
-namespace UnityTemplateProjects.Items
+namespace Items
 {
     public interface ITouchable
     {
