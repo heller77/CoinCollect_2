@@ -10,6 +10,7 @@ namespace CoinCollect2.Items.Coins
         public void Touch(PlayerContactDetector detector)
         {
             detector.GetCoin(this);
+            Destroy(this.gameObject);
         }
 
         public void SetCoinType(CoinType type)
