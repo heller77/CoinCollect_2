@@ -22,5 +22,10 @@ namespace CoinCollect2.Player
         {
             this.transform.position += diff * deltatime;
         }
+
+        public void SetSpeed(float speed)
+        {
+            this.speed = speed;
+        }
     }
 }

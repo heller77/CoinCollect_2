@@ -18,7 +18,7 @@ namespace CoinCollect2.Player
             if (collision.gameObject.TryGetComponent(out ITouchable getObject))
             {
                 getObject.Touch(this);
-                Debug.Log("検出器 「何かに触れた！」");
+                // Debug.Log("検出器 「何かに触れた！」");
             }
         }
 
