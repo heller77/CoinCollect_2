@@ -9,7 +9,7 @@ namespace CoinCollect2.Items.Coins
         private CoinType _type;
         public void Touch(PlayerContactDetector detector)
         {
-            Debug.Log("コイン取得した");
+            detector.GetCoin(this);
         }
 
         public void SetCoinType(CoinType type)
@@ -17,9 +17,9 @@ namespace CoinCollect2.Items.Coins
             this._type = type;
         }
 
-        public CoinType GetCoinType(CoinType type)
+        public CoinType GetCoinType()
         {
-            return type;
+            return this._type;
         }
     }
 }
