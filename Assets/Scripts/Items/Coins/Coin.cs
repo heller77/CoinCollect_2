@@ -1,7 +1,7 @@
-﻿using Player;
+﻿using CoinCollect2.Player;
 using UnityEngine;
 
-namespace Items.Coins
+namespace CoinCollect2.Items.Coins
 {
     public class Coin : MonoBehaviour,ITouchable
     {
@@ -9,7 +9,8 @@ namespace Items.Coins
         private CoinType _type;
         public void Touch(PlayerContactDetector detector)
         {
-            Debug.Log("コイン取得した");
+            detector.GetCoin(this);
+            Destroy(this.gameObject);
         }
 
         public void SetCoinType(CoinType type)
@@ -17,9 +18,9 @@ namespace Items.Coins
             this._type = type;
         }
 
-        public CoinType GetCoinType(CoinType type)
+        public CoinType GetCoinType()
         {
-            return type;
+            return this._type;
         }
     }
 }

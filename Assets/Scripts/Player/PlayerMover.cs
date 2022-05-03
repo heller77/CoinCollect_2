@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Player
+namespace CoinCollect2.Player
 {
     public class PlayerMover : MonoBehaviour
     {
@@ -21,6 +21,11 @@ namespace Player
         public void Move(Vector3 diff, float deltatime)
         {
             this.transform.position += diff * deltatime;
+        }
+
+        public void SetSpeed(float speed)
+        {
+            this.speed = speed;
         }
     }
 }

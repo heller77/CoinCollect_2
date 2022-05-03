@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 using UnityEngine;
 
-namespace UnityTemplateProjects
+namespace CoinCollect2
 {
     public class SimpleCameraController : MonoBehaviour
     {

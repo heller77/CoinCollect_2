@@ -1,47 +1,71 @@
 ﻿@startuml
 'https://plantuml.com/class-diagram
 namespace Player{
-    class CoinCollecter{
+    PlayerComponentFactory <.. PlayerContactDetector
+    ScoreCalucurator .> CoinCollector
+    PlayerComponentFactory -Result.ResultView
+    
+    class CoinCollector{
         Dictionary<CoinType,int> collectCoinNumber              
     }
     class PlayerMover{
         Move()
     }
+    class PlayerComponentFactory{
+    }
     class PlayerContactDetector{}
+    class ScoreCalucurator{
+    }
 }
 
 Items.ITouchble <. Player.PlayerContactDetector
-Player.PlayerContactDetector <- Player.CoinCollecter
+Player.PlayerContactDetector <-- Player.CoinCollector
 
 namespace Items{
     Items.ITouchble <|.. Coin
+    Items.ITouchble <|.. Enadori
+    CoinGenerator -- Coin
+    Coin -- CoinType
     interface ITouchble{
         touch()
     }
-    Coin -- CoinType
+    
     class Coin{
         CoinType type
         touch()   
     }
+   
     class CoinGenerator{
         void Generate()
         void GenerateLoop()
     }
-    Items.ITouchble <|.. Enadori
+   
     class Enadori{
     }
     enum CoinType{
     }
 }
+namespace InGameUI{
+    class view{
+        # CoinCollecter CoinCollecter
+        
+    }
+}
+
 'リザルト結果
 namespace Result{
-    ResultView <. Player.CoinCollecter
     class ResultView{   
     }
+
 }
 
 namespace StartView{
     
+}
+namespace GameLoops{
+    GameLoop --- Items.CoinGenerator
+    GameLoop --- Result.ResultView
+    class GameLoop{}
 }
 
 @enduml

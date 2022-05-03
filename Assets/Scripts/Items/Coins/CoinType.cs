@@ -1,4 +1,4 @@
-﻿namespace Items.Coins
+﻿namespace CoinCollect2.Items.Coins
 {
     public enum CoinType
     {
