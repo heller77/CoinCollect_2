@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using CoinCollect2.GameLoops;
+using CoinCollect2.SeManagers;
 using UnityEngine;
 
 namespace CoinCollect2.Items.Coins
@@ -6,7 +8,13 @@ namespace CoinCollect2.Items.Coins
     public class CoinGenerator : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _coinGameObject;
+        private GameObject goldObject;
+
+        [SerializeField] private GameObject silverObject;
+        [SerializeField] private GameObject copperObject;
+
+        [SerializeField] private InGameSeManager _inGameSeManager;
+        
 
         // [SerializeField] private float _interval=3.0f;
         [SerializeField]
@@ -16,9 +24,29 @@ namespace CoinCollect2.Items.Coins
         [SerializeField] private float y = 1.0f;
         void Generate(CoinType type)
         {
-            var tmpCoinGameObject = Instantiate(_coinGameObject);
+            GameObject tmpCoinGameObject;
+            switch (type)
+            {
+                case CoinType.Gold:
+                    tmpCoinGameObject=Instantiate(goldObject);
+                    break;
+                case CoinType.Silver:
+                    tmpCoinGameObject = Instantiate(silverObject);
+                    break;
+                case CoinType.Copper:
+                    tmpCoinGameObject = Instantiate(copperObject);
+                    break;
+                default:
+                    tmpCoinGameObject = Instantiate(goldObject);
+                    Debug.Log("switch error");
+                    break;
+                    
+            }
+            
+        
             tmpCoinGameObject.transform.position = new Vector3(Random.Range(leftDownPoint.x,rightUpPoint.x), y, Random.Range(leftDownPoint.y,rightUpPoint.y));
             var tmpCoin = tmpCoinGameObject.GetComponent<Coin>();
+            tmpCoin.SetInGameSeManager(this._inGameSeManager);
             _coinList.Add(tmpCoin);
             tmpCoin.SetCoinType(type);
         }

@@ -13,9 +13,10 @@ namespace CoinCollect2.Player
         {
             this._coinCollector = coinCollector;
         }
-        private void OnCollisionEnter(Collision collision)
+
+        private void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.TryGetComponent(out ITouchable getObject))
+            if (other.gameObject.TryGetComponent(out ITouchable getObject))
             {
                 getObject.Touch(this);
                 // Debug.Log("検出器 「何かに触れた！」");
