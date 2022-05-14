@@ -20,7 +20,7 @@ namespace CoinCollect2.Result
             inGameCanvas.SetActive(false);
             ResultCanvas.SetActive(true);
             var score = scoreCalucurator.GetScore();
-            scoreText.text = " Score "+score.ToString();
+            scoreText.text = score.ToString();
         }
 
         public void GetCollectCoin()
@@ -29,7 +29,7 @@ namespace CoinCollect2.Result
             var gold = collectCoinDictionary[CoinType.Gold];
             var silver = collectCoinDictionary[CoinType.Silver];
             var copper = collectCoinDictionary[CoinType.Copper];
-            Debug.Log("gold : "+ gold + " silver : "+ silver + " copper : "+ copper);
+            // Debug.Log("gold : "+ gold + " silver : "+ silver + " copper : "+ copper);
         }
 
         public void SetCoinCollector(CoinCollector coinCollector)
