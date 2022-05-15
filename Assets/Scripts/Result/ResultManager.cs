@@ -31,9 +31,15 @@ namespace CoinCollect2.Result
 
         public async void GotoRanking()
         {
+           
+            var ranking =await SetScore();
+            if (ranking == "out")
+            {
+                Debug.Log("out!!");
+                return;
+            }
             inputUserNameObject.SetActive(false);
             showRankingObject.SetActive(true);
-            var ranking =await SetScore();
 
             var jsonObject = JsonHelper.FromJson<ScoreData>(ranking);
             for(int i=0;i<jsonObject.Length;i++)
@@ -43,16 +49,17 @@ namespace CoinCollect2.Result
                 var oneline=Instantiate(rankingOnelineObject, Vector3.zero, quaternion.identity, rankingContentParent);
                 oneline.GetComponent<RankingOneLine>().SetData(i,scoreData.score,scoreData.userName);
             }
+         
             
         }
 
         public async UniTask<string> SetScore()
         {
             var username = userNameInput.text;
-            if (username.Length >= 8)
+            if (username.Length >8)
             {
                 Debug.Log("8文字以下にしてください");
-                return null;
+                return "out";
             }
 
             var json =await PostScore(this.score, username);
