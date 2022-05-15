@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace CoinCollect2.Player
         [SerializeField] private float dushSpeed;
         [SerializeField] private float dushIntervalTime = 1.0f;
         [SerializeField] private bool isDushAble = true;
-
+        [SerializeField] private float dushTime=0.4f;
 
         private void Start()
         {
@@ -35,7 +36,7 @@ namespace CoinCollect2.Player
                 // _rigidbody.AddForce(moveVector*speed,ForceMode.Impulse);
                 // speedupInAnyTime(dushTime,dushAddSpedd);
                 if (isDushAble)
-                    Dush();
+                    Dush(moveVector,speed,dushTime);
             }
         }
 
@@ -46,7 +47,7 @@ namespace CoinCollect2.Player
 
         public void Move(Vector3 diff, float deltatime)
         {
-            Debug.Log("move " + diff);
+            // Debug.Log("move " + diff);
             // this.transform.position += diff * deltatime;
             _rigidbody.velocity = diff * deltatime;
             // _rigidbody.MovePosition(this.transform.position+diff*deltatime);
@@ -56,7 +57,7 @@ namespace CoinCollect2.Player
         {
             this.speed = speed;
         }
-
+        
         private async UniTask speedupInAnyTime(float limitedTime, float addSpeed)
         {
             Debug.Log("speed up");
@@ -67,9 +68,26 @@ namespace CoinCollect2.Player
             Debug.Log("speed down");
         }
 
-        private void Dush()
+        private bool forCancel = false;
+        public async UniTask Dush(Vector3 dushVector,float dushSpeed,float time)
         {
-            _rigidbody.AddForce(moveVector * (speed * 2), ForceMode.Impulse);
+            float elapsedTime = 0.0f;
+            forCancel = true;
+            await UniTask.DelayFrame(1);
+            forCancel = false;
+            while (true)
+            {
+                if (elapsedTime > time||forCancel)
+                {
+                    // Debug.Log("加速終了");
+                    break;
+                }
+                _rigidbody.AddForce(dushVector * (dushSpeed * 2), ForceMode.Acceleration);
+                await UniTask.DelayFrame(1);
+                elapsedTime += Time.deltaTime;
+
+            }
+
             DushIntervalCalucurateStart();
         }
 
@@ -79,5 +97,6 @@ namespace CoinCollect2.Player
             await UniTask.Delay(TimeSpan.FromSeconds(this.dushIntervalTime));
             this.isDushAble = true;
         }
+       
     }
 }

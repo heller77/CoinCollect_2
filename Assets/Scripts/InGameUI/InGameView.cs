@@ -10,7 +10,12 @@ namespace CoinCollect2.InGameUI
         [SerializeField] private TextMeshProUGUI goldCoinNumText;
         [SerializeField] private TextMeshProUGUI silverCoinNumText;
         [SerializeField] private TextMeshProUGUI copperCoinNumText;
+        [SerializeField] private TextMeshProUGUI magnificationText;
 
+        public void UpdateMagnification(int magnification)
+        {
+            magnificationText.text = "*"+magnification.ToString();
+        }
         public void UpdateScore(float score)
         {
             scoreText.text = "Score : " + score;

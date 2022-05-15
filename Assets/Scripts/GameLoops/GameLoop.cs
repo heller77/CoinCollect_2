@@ -78,6 +78,7 @@ namespace CoinCollect2.GameLoops
             _inGameView.UpdateGoldCoinText(coinDictionary[CoinType.Gold]);
             _inGameView.UpdateSilverText(coinDictionary[CoinType.Silver]);
             _inGameView.UpdateCopperText(coinDictionary[CoinType.Copper]);
+            _inGameView.UpdateMagnification(_scoreCalucurator.GetMagnification());
         }
 
         /// <summary>
