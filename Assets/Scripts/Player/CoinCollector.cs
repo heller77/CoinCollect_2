@@ -33,7 +33,7 @@ namespace CoinCollect2.Player
             var gold = collectCoinNumber[CoinType.Gold];
             if (copper == silver&&silver == gold)
             {
-                Debug.Log("sorotta");
+                // Debug.Log("sorotta");
                 this._scoreCalucurator.DoublicMagnification();
             }
             _scoreCalucurator.addScoreByCoin(coin);
