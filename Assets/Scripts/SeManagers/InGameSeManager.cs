@@ -10,7 +10,8 @@ namespace CoinCollect2.SeManagers
 
         public void PlaySeGetCoin()
         {
-            _audioSource.PlayOneShot(coinSe);
+            // _audioSource.PlayOneShot(coinSe);
+            _audioSource.Play();
         }
     }
 }
