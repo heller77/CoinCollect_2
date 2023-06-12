@@ -18,10 +18,13 @@ namespace CoinCollect2.Player
         [SerializeField] private float dushIntervalTime = 1.0f;
         [SerializeField] private bool isDushAble = true;
         [SerializeField] private float dushTime=0.4f;
+        [SerializeField] private GameObject dustTrailEffect;
+        
 
         private void Start()
         {
             this._rigidbody = GetComponent<Rigidbody>();
+            dustTrailEffect.SetActive(false);
         }
 
         private void Update()
@@ -71,6 +74,7 @@ namespace CoinCollect2.Player
         private bool forCancel = false;
         public async UniTask Dush(Vector3 dushVector,float dushSpeed,float time)
         {
+            dustTrailEffect.SetActive(true);
             float elapsedTime = 0.0f;
             forCancel = true;
             await UniTask.DelayFrame(1);
@@ -88,6 +92,7 @@ namespace CoinCollect2.Player
 
             }
 
+            dustTrailEffect.SetActive(false);
             DushIntervalCalucurateStart();
         }
 
