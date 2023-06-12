@@ -28,6 +28,14 @@ namespace CoinCollect2.Player
         public void SetCoin(Coin coin)
         {
             collectCoinNumber[coin.GetCoinType()] += 1;
+            var copper = collectCoinNumber[CoinType.Copper];
+            var silver = collectCoinNumber[CoinType.Silver];
+            var gold = collectCoinNumber[CoinType.Gold];
+            if (copper == silver&&silver == gold)
+            {
+                // Debug.Log("sorotta");
+                this._scoreCalucurator.DoublicMagnification();
+            }
             _scoreCalucurator.addScoreByCoin(coin);
         }
 

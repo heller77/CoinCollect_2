@@ -25,6 +25,8 @@ namespace CoinCollect2.GameLoops
         private CoinCollector _coinCollector;
 
         [SerializeField] private ResultView _resultView;
+        [SerializeField] private ResultManager _resultManager;
+        
         
         public void setIsPlayingNow(bool isPlayingNow)
         {
@@ -76,6 +78,7 @@ namespace CoinCollect2.GameLoops
             _inGameView.UpdateGoldCoinText(coinDictionary[CoinType.Gold]);
             _inGameView.UpdateSilverText(coinDictionary[CoinType.Silver]);
             _inGameView.UpdateCopperText(coinDictionary[CoinType.Copper]);
+            _inGameView.UpdateMagnification(_scoreCalucurator.GetMagnification());
         }
 
         /// <summary>
@@ -85,7 +88,8 @@ namespace CoinCollect2.GameLoops
         {
             var playerMover = _playerComponentFactory.GetPlayerMover();
             playerMover.SetSpeed(0.0f);
-            _resultView.ShowResul(_coinCollector,_scoreCalucurator);
+            // _resultView.ShowResul(_coinCollector,_scoreCalucurator);
+            _resultManager.startResult(_coinCollector,_scoreCalucurator,"css");
         }
     }
 }
