@@ -22,14 +22,15 @@ Items.ITouchble <. Player.PlayerContactDetector
 Player.PlayerContactDetector <-- Player.CoinCollector
 
 namespace Items{
-    Items.ITouchble <|.. Coin
-    Items.ITouchble <|.. Enadori
-    CoinGenerator -- Coin
-    Coin -- CoinType
+    Items.ITouchble <|..  Items.Coins.Coin
+    Items.Coins.CoinGenerator --  Items.Coins.Coin
+    Items.Coins.Coin --  Items.Coins.CoinType
     interface ITouchble{
         touch()
     }
-    
+
+}
+namespace Items.Coins{
     class Coin{
         CoinType type
         touch()   
@@ -39,9 +40,7 @@ namespace Items{
         void Generate()
         void GenerateLoop()
     }
-   
-    class Enadori{
-    }
+    class CoinShaderController{}
     enum CoinType{
     }
 }
@@ -59,13 +58,12 @@ namespace Result{
 
 }
 
-namespace StartView{
-    
-}
 namespace GameLoops{
-    GameLoop --- Items.CoinGenerator
-    GameLoop --- Result.ResultView
+    GameLoop ..> Items.Coins.CoinGenerator
+    GameLoop ..> Result.ResultView
     class GameLoop{}
 }
-
+namespace GoToTitles{
+    class GoTOTitle{}
+}
 @enduml
